@@ -93,6 +93,8 @@ def startChat(textbox, userMessage, chat, botMessage, event=None):
     answer = chat.get_response(request)
     botMessage["text"] = answer
 
+    textbox.delete(0, "end")
+
 
 # Calling main Function
 main()
