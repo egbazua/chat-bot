@@ -4,6 +4,7 @@ from multiprocessing.sharedctypes import Value
 from tkinter import ttk
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 from tkinter import *
 
 # Main Function
@@ -11,11 +12,20 @@ def main():
 
     # ChatBot
     chat = ChatBot('Venado')
-    talk = ['Hola', '¿Qué tal?', 'Tengo una pregunta', 'Si, dime',
+    trainer = ChatterBotCorpusTrainer(chat)
+    trainer.train(
+        "chatterbot.corpus.spanish.conversations",
+        "chatterbot.corpus.spanish.greetings",
+        "chatterbot.corpus.spanish.trivia",
+        )
+
+    # Manual words
+    """ talk = ['Hola', '¿Qué tal?', 'Tengo una pregunta', 'Si, dime',
             'La comida en méxico, ¿es buena?', 'Si, ¿es deliciosa?', 
-            '¿Qué me recomiendas?', 'Tamales', 'Muchas gracias']
-    trainer = ListTrainer(chat)
-    trainer.train(talk)
+            '¿Qué me recomiendas?', 'Tamales', 'Muchas gracias'] """
+    """  trainer = ListTrainer(chat) """
+    
+    """ trainer.train(talk) """
 
     # Window
     window = Tk()
@@ -41,9 +51,9 @@ def main():
     footer.pack(side = tkinter.BOTTOM) """
 
     # Images
-    botCanvas = Canvas(frame, width=50, height=50)
+    """ botCanvas = Canvas(frame, width=50, height=50)
     botImage = PhotoImage(file="images/bot.png")
-    botCanvas.create_image(20, 20, anchor=NW, image=botImage)
+    botCanvas.create_image(20, 20, anchor=NW, image=botImage) """
 
     # User Messages
     userTitle = Label(frame, text="Usuario:", font=('Arial 10'), bg="white", fg="blue")
