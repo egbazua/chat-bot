@@ -41,9 +41,12 @@ def main():
     footer.pack(side = tkinter.BOTTOM) """
 
     # User Messages
-    userMessage = Label(frame, text = "", font = ('Arial 10'))
+    userTitle = Label(frame, text="Usuario:", font=('Arial 10'), bg="white", fg="blue")
+    userTitle.place(x=10, y=145)
+
+    userMessage = Label(frame, text = "", font = ('Arial 10'), bg="white")
     """ userMessage.pack(side = RIGHT) """
-    userMessage.place(x=250, y=170)
+    userMessage.place(x=10, y=170)
 
     # Bot Messages
     botTitle = Label(frame, text="ChatBot:", font=('Arial 10'), bg="white", fg="red")
@@ -51,7 +54,7 @@ def main():
 
     botMessage = Label(frame, text = "", font = ('Arial 10'), bg="white")
     """ botMessage.pack(side = LEFT) """
-    botMessage.place(x=10, y=40)
+    botMessage.place(x=10, y=35)
 
     # Button
     button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage, chat, botMessage))
