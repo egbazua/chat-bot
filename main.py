@@ -72,17 +72,19 @@ def main():
     botMessage.place(x=10, y=35)
 
     # Button
-    button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage, chat, botMessage))
+    button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(textbox, userMessage, chat, botMessage))
     button.pack(side = BOTTOM, pady=5)
+    button.bind('<Return>', startChat)
 
     # TextBox
     textbox = ttk.Entry(textvariable = message)
     textbox.pack(side = BOTTOM)
+    textbox.focus()
 
     window.mainloop()
 
 # Start Chat Button
-def startChat(window, textbox, userMessage, chat, botMessage):
+def startChat(textbox, userMessage, chat, botMessage, event=None):
     value = textbox.get()
     userMessage["text"] = value
     
