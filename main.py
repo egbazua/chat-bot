@@ -16,9 +16,10 @@ window.resizable(width=False, height=False)
 title = Label(window, text = "Platica conmigo", font = ('Times 18'))
 title.pack()
 
-# Main frame
-frame = Frame(window)
+# Frame
+frame = Frame(window, width=320, height=215, highlightbackground="black", highlightthickness=1)
 frame.pack()
+frame.config(bg="white")
 
 # Footer
 """ footer = tkinter.Label(window, text = "Enrique Bazúa")
