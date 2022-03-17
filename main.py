@@ -1,6 +1,10 @@
 # Modules and imports
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+import tkinter
+
+window = tkinter.Tk()
+window.mainloop()
 
 chat = ChatBot('Venado')
 talk = ['Hola', '¿Qué tal?', 'Tengo una pregunta', 'Si, dime',
