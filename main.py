@@ -12,12 +12,15 @@ window.resizable(width=False, height=False)
 
 
 # Title
-title = tkinter.Label(window, text = "Hola mundo")
+title = tkinter.Label(window, text = "Platica conmigo", font = ('Times 18'))
 title.pack()
 
 # Footer
 footer = tkinter.Label(window, text = "Enrique Bazúa")
 footer.pack(side = tkinter.BOTTOM)
+
+# TextBox
+
 
 window.mainloop()
 
@@ -28,7 +31,7 @@ talk = ['Hola', '¿Qué tal?', 'Tengo una pregunta', 'Si, dime',
 trainer = ListTrainer(chat)
 trainer.train(talk)
 
-while True:
+""" while True:
     request = input('User: ')
     answer = chat.get_response(request)
-    print('Bot: ', answer)
+    print('Bot: ', answer) """
