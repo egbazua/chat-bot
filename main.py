@@ -5,7 +5,9 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from tkinter import *
 
+# Main Function
 def main():
+
     # ChatBot
     chat = ChatBot('Venado')
     talk = ['Hola', '¿Qué tal?', 'Tengo una pregunta', 'Si, dime',
@@ -35,7 +37,7 @@ def main():
     footer.pack(side = tkinter.BOTTOM) """
 
     # Buttom
-    button = ttk.Button(text = "Enviar mensaje")
+    button = ttk.Button(text = "Enviar mensaje", command = startChat)
     button.pack(side = BOTTOM)
 
     # TextBox
@@ -44,8 +46,10 @@ def main():
 
     window.mainloop()
 
-
-# Main Function
+def startChat():
+    print("Hola mundo")
+    
+# Calling main Function
 main()
 
 """ while True:
