@@ -3,27 +3,34 @@ from cgitb import text
 from tkinter import ttk
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-import tkinter
+from tkinter import *
 
 # Window
-window = tkinter.Tk()
+window = Tk()
 window.geometry("400x300+800+400")
 window.iconbitmap("images/bot.ico")
 window.title("Chat Bot")
 window.resizable(width=False, height=False)
 
-
 # Title
-title = tkinter.Label(window, text = "Platica conmigo", font = ('Times 18'))
+title = Label(window, text = "Platica conmigo", font = ('Times 18'))
 title.pack()
 
+# Main frame
+frame = Frame(window)
+frame.pack()
+
 # Footer
-footer = tkinter.Label(window, text = "Enrique Bazúa")
-footer.pack(side = tkinter.BOTTOM)
+""" footer = tkinter.Label(window, text = "Enrique Bazúa")
+footer.pack(side = tkinter.BOTTOM) """
+
+# Buttom
+button = ttk.Button(text = "Enviar mensaje")
+button.pack(side = BOTTOM)
 
 # TextBox
 textbox = ttk.Entry()
-textbox.pack(side = tkinter.BOTTOM)
+textbox.pack(side = BOTTOM)
 
 window.mainloop()
 
