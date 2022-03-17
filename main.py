@@ -71,14 +71,16 @@ def main():
     """ botMessage.pack(side = LEFT) """
     botMessage.place(x=10, y=35)
 
+    # Textbox
+    textbox = ttk.Entry(textvariable = message)
+    
     # Button
     button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(textbox, userMessage, chat, botMessage))
     button.pack(side = BOTTOM, pady=5)
     button.invoke()
     window.bind('<Return>', lambda event=None: button.invoke())
 
-    # TextBox
-    textbox = ttk.Entry(textvariable = message)
+    # TextBox configuration
     textbox.pack(side = BOTTOM)
     textbox.focus()
 
@@ -86,6 +88,9 @@ def main():
 
 # Start Chat Button
 def startChat(textbox, userMessage, chat, botMessage, event=None):
+    if len(textbox.get()) == 0:
+        return
+
     value = textbox.get()
     userMessage["text"] = value
     
