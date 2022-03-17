@@ -74,7 +74,8 @@ def main():
     # Button
     button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(textbox, userMessage, chat, botMessage))
     button.pack(side = BOTTOM, pady=5)
-    button.bind('<Return>', startChat)
+    button.invoke()
+    window.bind('<Return>', lambda event=None: button.invoke())
 
     # TextBox
     textbox = ttk.Entry(textvariable = message)
