@@ -1,5 +1,6 @@
 # Modules and imports
 from cgitb import text
+from multiprocessing.sharedctypes import Value
 from tkinter import ttk
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
@@ -23,32 +24,43 @@ def main():
     window.title("Chat Bot")
     window.resizable(width=False, height=False)
 
+    # Variables
+    message = StringVar()
+
     # Title
     title = Label(window, text = "Platica conmigo", font = ('Times 18'))
     title.pack()
 
     # Frame
-    frame = Frame(window, width=320, height=215, highlightbackground="black", highlightthickness=1)
+    """ frame = Frame(window, width=320, height=215, highlightbackground="black", highlightthickness=1)
     frame.pack()
-    frame.config(bg="white")
+    frame.config(bg="white") """
 
     # Footer
     """ footer = tkinter.Label(window, text = "Enrique Bazúa")
     footer.pack(side = tkinter.BOTTOM) """
 
-    # Buttom
-    button = ttk.Button(text = "Enviar mensaje", command = startChat)
-    button.pack(side = BOTTOM)
+    # User Messages
+    userMessage = Label(window, text = "", font = ('Arial 12'))
+    userMessage.pack(side = RIGHT)
+
+    # Button
+    button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage))
+    button.pack(side = BOTTOM, pady=5)
 
     # TextBox
-    textbox = ttk.Entry()
+    textbox = ttk.Entry(textvariable = message)
     textbox.pack(side = BOTTOM)
 
     window.mainloop()
 
-def startChat():
-    print("Hola mundo")
+# Start Chat Button
+def startChat(window, textbox, userMessage):
+    value = textbox.get()
+    userMessage["text"] = value
     
+
+
 # Calling main Function
 main()
 
