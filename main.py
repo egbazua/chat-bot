@@ -44,8 +44,12 @@ def main():
     userMessage = Label(window, text = "", font = ('Arial 12'))
     userMessage.pack(side = RIGHT)
 
+    # Bot Messages
+    botMessage = Label(window, text = "", font = ('Arial 12'))
+    botMessage.pack(side = LEFT)
+
     # Button
-    button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage))
+    button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage, chat, botMessage))
     button.pack(side = BOTTOM, pady=5)
 
     # TextBox
@@ -55,10 +59,13 @@ def main():
     window.mainloop()
 
 # Start Chat Button
-def startChat(window, textbox, userMessage):
+def startChat(window, textbox, userMessage, chat, botMessage):
     value = textbox.get()
     userMessage["text"] = value
     
+    request = value
+    answer = chat.get_response(request)
+    botMessage["text"] = answer
 
 
 # Calling main Function
