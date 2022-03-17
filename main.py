@@ -32,21 +32,26 @@ def main():
     title.pack()
 
     # Frame
-    """ frame = Frame(window, width=320, height=215, highlightbackground="black", highlightthickness=1)
+    frame = Frame(window, width=320, height=205, highlightbackground="black", highlightthickness=1)
     frame.pack()
-    frame.config(bg="white") """
+    frame.config(bg="white")
 
     # Footer
     """ footer = tkinter.Label(window, text = "Enrique Bazúa")
     footer.pack(side = tkinter.BOTTOM) """
 
     # User Messages
-    userMessage = Label(window, text = "", font = ('Arial 12'))
-    userMessage.pack(side = RIGHT)
+    userMessage = Label(frame, text = "", font = ('Arial 10'))
+    """ userMessage.pack(side = RIGHT) """
+    userMessage.place(x=250, y=170)
 
     # Bot Messages
-    botMessage = Label(window, text = "", font = ('Arial 12'))
-    botMessage.pack(side = LEFT)
+    botTitle = Label(frame, text="ChatBot:", font=('Arial 10'), bg="white", fg="red")
+    botTitle.place(x=10, y=10)
+
+    botMessage = Label(frame, text = "", font = ('Arial 10'), bg="white")
+    """ botMessage.pack(side = LEFT) """
+    botMessage.place(x=10, y=40)
 
     # Button
     button = ttk.Button(text = "Enviar mensaje", command = lambda: startChat(window, textbox, userMessage, chat, botMessage))
