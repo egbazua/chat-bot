@@ -1,4 +1,6 @@
 # Modules and imports
+from cgitb import text
+from tkinter import ttk
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 import tkinter
@@ -20,7 +22,8 @@ footer = tkinter.Label(window, text = "Enrique Bazúa")
 footer.pack(side = tkinter.BOTTOM)
 
 # TextBox
-
+textbox = ttk.Entry()
+textbox.pack(side = tkinter.BOTTOM)
 
 window.mainloop()
 
